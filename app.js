@@ -10,6 +10,8 @@ admin.initializeApp({
     databaseURL: "https://party-haus.firebaseio.com/"
 })
 var db = admin.database();
+var ref = db.ref();
+
 var client_id = 'f779e8c79de344eeb0200c198c6c0b8e';
 var client_secret = 'b47d5f992e4545fcb09bdd7b4e529046';
 var redirect_uri = 'http://localhost:8888/callback';
@@ -76,15 +78,10 @@ app.get('/callback', function(req,res) {
             if (!error && response.statusCode === 200) {
                 let access_token = body.access_token;
                 let refresh_token = body.refresh_token;
-                
+                ref
             }
 
-        }
-        
-
-
-    }
-        
+        });
 }
 
 
