@@ -1,0 +1,36 @@
+html
+{
+    text-align: center;
+    background: rgb(0,103,25);
+    background: linear-gradient(346deg, rgba(0,103,25,1) 0%, rgba(83,200,0,1) 100%);
+    margin: 40px;
+}
+
+h1
+{
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    margin: 100px auto 30px auto;
+}
+
+p
+{
+    font-size: 1.3rem;
+    color: white;
+}
+
+a
+{
+    border-radius: 100%;
+    background-color: white;
+    color: #222;
+    padding: 5px 20px;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.logo
+{
+    display: none;
+}
