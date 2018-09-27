@@ -4,7 +4,7 @@ var cors = require('cors')
 var querystring = require('querystring')
 var cookieParser = require('cookie-parser')
 var admin = require("firebase-admin")
-var serviceAccount = require("./PrivateKeys/party-haus-217716-555c9903fe9d.json")
+var serviceAccount = require("./PrivateKeys/party-haus-firebase-adminsdk-hx192-126100e80c.json")
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://party-haus.firebaseio.com/"
@@ -30,9 +30,11 @@ let cookieGenerator = function(length)
 let stateKey = 'spotify_auth_state';
 
 var app = express()
-
-app.use(cors()).use(cookieParser())
-
+console.log("hell0")
+app.use(express.static(__dirname+"/"))
+    .use(cors())
+    .use(cookieParser())
+console.log("hello")
 app.get('/login', function(req,res) {
     let state = cookieGenerator(16);
     res.cookie(stateKey, state);
@@ -51,7 +53,7 @@ app.get('/login', function(req,res) {
 app.get('/callback', function(req,res) {
     let code = req.query.code || null;
     let state = req.query.state || null;
-    let storedState = req.cookies ? req.cookies(stateKey) : null;
+    var storedState = req.cookies ? req.cookies[stateKey] : null;
 
     if (state === null || state !== storedState)
     {
@@ -59,30 +61,47 @@ app.get('/callback', function(req,res) {
     }
     else
     {
+        console.log("hel110");
         res.clearCookie(stateKey);
-        var authOptions = 
-        {
+        var authOptions = {
             url: 'https://accounts.spotify.com/api/token',
             form: {
                 code: code,
                 redirect_uri: redirect_uri,
-                grant_type: 'authprization_code'
+                grant_type: 'authorization_code'
             },
             headers: {
                 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
             },
             json: true
         };
-
+        console.log("pop");
         request.post(authOptions, function(error, response, body) {
+            console.log(!error);
+            console.log(response.statusCode)
             if (!error && response.statusCode === 200) {
+                console.log(body)
                 let access_token = body.access_token;
                 let refresh_token = body.refresh_token;
-                ref
+                let accessCode = cookieGenerator(6);
+                ref.update({
+                     [accessCode]: {
+                        access_token: access_token,
+                        refresh_token: refresh_token
+                    }
+                }
+                )
+                console.log("hello")
+                res.redirect('/')
             }
 
         });
-}
+    }   
+});
+
+app.listen(8888)
+
+
 
 
 
