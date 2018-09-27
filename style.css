@@ -52,11 +52,16 @@ p
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+div.logo
+{
+    text-align: left;
+    margin: 30px 30px;
+}
+
 .logo
 {
-    width: 40px;
-    display: inline;
-    margin-top: 30px;
+    width: 140px;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 350px)
