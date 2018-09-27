@@ -39,6 +39,7 @@ a
     transition: all ease 0.2s;
     text-decoration: none;
     text-transform: uppercase;
+    leter-spacing: 0.1rem;
 }
 
 
