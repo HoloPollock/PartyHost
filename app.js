@@ -103,7 +103,7 @@ app.get('/callback', function(req,res) {
                         partyName : body.display_name.substr(0,body.display_name.indexOf(' ')) + "'s Banger" 
                     })
                 });
-                res.redirect('/host#' + querystring.stringify({
+                res.redirect('/host?' + querystring.stringify({
                     accessCode : accessCode
                 }));
 
