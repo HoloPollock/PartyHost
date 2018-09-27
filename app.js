@@ -92,7 +92,21 @@ app.get('/callback', function(req,res) {
                 }
                 )
                 console.log("hello")
-                res.redirect('/')
+                var options = {
+                    url: 'https://api.spotify.com/v1/me',
+                    headers: { 'Authorization': 'Bearer ' + access_token },
+                    json: true
+                };
+                request.get(options, function(error, response, body) {
+                    party = ref.child(accessCode);
+                    party.update({
+                        partyName : body.display_name.substr(0,body.display_name.indexOf(' ')) + "'s Banger" 
+                    })
+                });
+                res.redirect('/host#' + querystring.stringify({
+                    accessCode : accessCode
+                }));
+
             }
 
         });
