@@ -90,6 +90,11 @@ button
     text-align: left;
 }
 
+.form p
+{
+    margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 350px)
 {
     .login
