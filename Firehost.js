@@ -45,8 +45,9 @@ function deleteParty()
 
 }
 
-function changePartyName(newName) 
+function changePartyName() 
 {
+  let newName = document.getElementById("nameValue").value
   db.ref(accessCode+'/partyName').set(newName);
   document.getElementById('party-name').innerHTML = newName
 }

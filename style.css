@@ -137,6 +137,33 @@ button
     display: none;
 }
 
+input
+{
+    padding: 10px 5px 2px 5px;
+    border: none;
+    border-bottom: 2px #cccccc solid;
+    outline: none;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+}
+
+input[type="submit" i]
+{
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    color: #222;
+    padding: 12px 15px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    outline: none;
+}
+
 @media only screen and (max-width: 350px)
 {
     .login
