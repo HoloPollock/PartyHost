@@ -40,7 +40,12 @@ function getPartyName()
 function deleteParty() {
    accessCode = getQueryVariable('accessCode')
    party = db.ref(accessCode+'/').remove()
-   
+
+}
+
+function changePartyName(newName) {
+  db.ref(accessCode+'/partyName').set(newName);
+  document.getElementById('party-name').innerHTML = newName
 }
 
 window.onload = function() {
