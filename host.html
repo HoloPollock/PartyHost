@@ -23,13 +23,16 @@
         <div class="logo"><a class="logo" href="./"><img class="logo" src="./assets/wordmark.png"></a></div>
         <div class="form">
             <p>Party Name</p>
-            <h1 style="display:inline;">Matthew's Banger</h1>
+            <h1 style="display:inline;" id = "party-name">Loading..</h1>
             <button onclick="">CHANGE</button>
             
             <p>Party Code</p>
-            <h1 style="display:inline;">k6dt</h1>
+            <h1 style="display:inline;" id = "party-code"></h1>
             <button onclick="">SHARE</button>
         </div>
-        
+       <button onclick="getPartyName()">Click Me</button> 
     </body>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js">console.log("loaded")</script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js">console.log("db loaded")</script>
+    <script src = "./Firehost.js"></script>
 </html>
