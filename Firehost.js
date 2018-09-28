@@ -37,13 +37,21 @@ function getPartyName()
 
 }
 
+function deleteParty() {
+   accessCode = getQueryVariable('accessCode')
+   party = db.ref(accessCode+'/').remove()
+   
+}
+
 window.onload = function() {
   let code = getQueryVariable('accessCode');
+  document.getElementById("party-code").innerHTML = code;
   let name = getPartyName();
   name.then(function(value) {
     document.getElementById("party-name").innerHTML = value 
   })
-  document.getElementById("party-code").innerHTML = code;
+
+  
 }
 
 

@@ -24,11 +24,11 @@
         <div class="logo"><a class="logo" href="./"><img class="logo" src="./assets/wordmark.png"></a></div>
         <div class="form">
             <p>Party Name</p>
-            <h1 style="display:inline;">Matthew's Banger</h1>
+            <h1 style="display:inline;" id = "party-name" >Loading..</h1>
             <button onclick="partyName()">CHANGE</button>
             
             <p>Party Code</p>
-            <h1 style="display:inline;">k6dt</h1>
+            <h1 style="display:inline;" id = party-code>Loading..</h1>
             <button onclick="code()">SHARE</button>
             
             <p>Default Playlist</p>
@@ -36,7 +36,7 @@
             <button onclick="playlist()">CHANGE</button>
         </div>
         <p> </p>
-        <a class="login" onclick="end()" style="background-color: #f77474">END PARTY</a>
+        <a class="login" onclick="deleteParty()" style="background-color: #f77474" href = "/" >END PARTY</a>
         <div id="overlay"></div>
         <div id="popup">
             <div id="name">
