@@ -29,7 +29,7 @@ function getQueryVariable(id)
 function getPartyName()
 {
   accessCode = getQueryVariable('accessCode');
-  party = db.ref(accessCode+'/')
+  party = db.ref(accessCode+'/');
   return party.once('value').then(function(snapshot) {
     let partyName = snapshot.val().partyName;
     return partyName;
@@ -40,16 +40,17 @@ function getPartyName()
 
 function deleteParty() 
 {
-   accessCode = getQueryVariable('accessCode')
-   party = db.ref(accessCode+'/').remove()
+   accessCode = getQueryVariable('accessCode');
+   party = db.ref(accessCode+'/').remove();
 
 }
 
 function changePartyName() 
 {
-  let newName = document.getElementById("nameValue").value
+  let newName = document.getElementById("nameValue").value;
   db.ref(accessCode+'/partyName').set(newName);
-  document.getElementById('party-name').innerHTML = newName
+  document.getElementById('party-name').innerHTML = newName;
+  closePopup();
 }
 
 window.onload = function() 
@@ -60,7 +61,7 @@ window.onload = function()
   name.then(function(value) 
   {
     document.getElementById("party-name").innerHTML = value 
-  })
+  });
 
   
 }
