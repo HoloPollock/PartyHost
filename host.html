@@ -17,22 +17,49 @@
         <title>Partyhaus - Host</title>
         <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./style.css" />
+        <script type="text/javascript" src="script.js"></script>
     </head>
 
     <body>
         <div class="logo"><a class="logo" href="./"><img class="logo" src="./assets/wordmark.png"></a></div>
         <div class="form">
             <p>Party Name</p>
-            <h1 style="display:inline;" id = "party-name">Loading..</h1>
-            <button onclick="">CHANGE</button>
+            <h1 style="display:inline;">Matthew's Banger</h1>
+            <button onclick="partyName()">CHANGE</button>
             
             <p>Party Code</p>
-            <h1 style="display:inline;" id = "party-code"></h1>
-            <button onclick="">SHARE</button>
+            <h1 style="display:inline;">k6dt</h1>
+            <button onclick="code()">SHARE</button>
+            
+            <p>Default Playlist</p>
+            <h1 style="display:inline;">Party Haaard</h1>
+            <button onclick="playlist()">CHANGE</button>
         </div>
-       <button onclick="getPartyName()">Click Me</button> 
+        <p> </p>
+        <a class="login" onclick="end()" style="background-color: #f77474">END PARTY</a>
+        <div id="overlay"></div>
+        <div id="popup">
+            <div id="name">
+                <p>Enter new party name:</p>
+                <form action="/action_page.php">
+                    <input type="text" name="partyname" value="">
+                    <input type="submit" value="SET">
+                </form> 
+            </div>
+            <div id="partycode">
+                <p>Share the party code so<br>that friends can join.</p>
+                
+            </div>
+            <div id="playlist">
+                <p>Enter new default playlist:</p>
+                <form action="/action_page.php">
+                    <input type="text" name="partyname" value="">
+                    <input type="submit" value="SET">
+                </form> 
+            </div>
+            <button style="box-shadow:none;color:green;margin-top:60px;" onclick="closePopup()">CANCEL</button>
+        </div>
     </body>
     <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js">console.log("loaded")</script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js">console.log("db loaded")</script>
     <script src = "./Firehost.js"></script>
 </html>
